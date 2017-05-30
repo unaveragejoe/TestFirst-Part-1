@@ -2,11 +2,11 @@ describe('Properties on Object Literal', function() {
   var object;
 
     // the `beforeEach` function is called once before each unit test spec
-    // "unit tests" or "tests" begin with the "it" function.      
+    // "unit tests" or "tests" begin with the "it" function.
   beforeEach(function() {
     // Each test re-assigns an empty object literal to the object variable.
     object = {};
-    setPropsOnObj(object);   
+    setPropsOnObj(object);
 
     /* `setPropsOnObj is a function you need to define and create in `properties.js`.
     The variable `object` is passed to the setPropsOnObj function and adds properties
@@ -71,18 +71,18 @@ describe('Properties on an Array Object', function() {
 
 
 /* Functions are also Objects! Functions and Arrays
-have the same features as Object Literals. You can add properties to them, 
+have the same features as Object Literals. You can add properties to them,
 pass them to functions as arguments, and return them as values from functions.
 */
 
 describe('Properties on a Function Object', function() {
   var functionObject;
 
-  beforeEach(function() {    
+  beforeEach(function() {
     functionObject = function() {
       return 'I am a function object, all functions are objects! Function can have their own properties too!';
     };
-    
+
     setPropsOnFunc(functionObject);
   });
 
@@ -102,20 +102,20 @@ describe('Properties on a Function Object', function() {
     });
 
     /* Whenever you define a function in JavaScript, the "function object" has built-in properties
-    similar to `Array.length`.  A unique property on all function objects is the `prototype` property. 
-    The `prototype` property is only on function objects and has special behavior when used in conjunction 
-    with the `new` keyword.  We'll cover this later in future specs.  
+    similar to `Array.length`.  A unique property on all function objects is the `prototype` property.
+    The `prototype` property is only on function objects and has special behavior when used in conjunction
+    with the `new` keyword.  We'll cover this later in future specs.
 
     It is important to just be aware
     that functions have a unique property `prototype` that is different than the internal prototype (__proto__)
     all objects have.
-  
-    However, just like any other object, we can do whatever we want to this `prototype` object    
+
+    However, just like any other object, we can do whatever we want to this `prototype` object
    */
 
     it('adds a property to the existing prototype object only on Function Objects', function() {
       expect(functionObject.prototype.helloWorld()).toEqual('Hello World');
-    }); 
+    });
   });
 
 });

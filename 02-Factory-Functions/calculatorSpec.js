@@ -1,10 +1,10 @@
 // In this exercise create a function that can
 // create and return a calculator object
 // that performs basic mathematic operations.
- 
+
 // We'll be using a pattern called the factory pattern where
 // our function, `createCalculator` creates an object tailored
-// to our needs.  
+// to our needs.
 
 describe("Create a Calculator", function() {
   var calculator;
@@ -12,7 +12,7 @@ describe("Create a Calculator", function() {
   // Below we're calling the `createCalculator` function, it returns
   // a value we are naming calculator. The tests below give us hints about
   // what functionality 'calculator' should have.
-  
+
   // This will happen before each `it` block of tests,
   // which means each set of tests will start with a new calculator variable.
   beforeEach(function() {
@@ -20,10 +20,10 @@ describe("Create a Calculator", function() {
   });
 
   it("initially has a value of 0", function() {
-    
+
     //This line tells us a lot!
     //First, it tells us that `calculator` must be an object that has a method called value
-    //Second, this tells us that its property `value` is a function, and should return the 
+    //Second, this tells us that its property `value` is a function, and should return the
     //outcome of the calculations
     //hmm.. I guess we'll need to store those outcomes somewhere..
     expect(calculator.value()).toEqual(0);

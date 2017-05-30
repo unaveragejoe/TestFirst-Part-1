@@ -69,7 +69,7 @@ describe("Looping", function() {
 
     // This test is to make sure you don't use "for (var i in a)" on an array
     // Remember how we can add any type of key/value pair to an array object
-    // since it's just like a regular object? When we loop over this array, 
+    // since it's just like a regular object? When we loop over this array,
     // we only want the numeric indexed properties!
     it("ignores non-indexed properties set on the array object", function() {
       var array = ['apple', 'banana', 'cherry'];
@@ -86,7 +86,7 @@ describe("Looping", function() {
       expect(join(array)).toEqual("applebananacherry");
     });
 
-    // No cheatin' now 
+    // No cheatin' now
     it("does not call Array.prototype.join", function(){
       spyOn(Array.prototype, 'join');
 
@@ -110,7 +110,7 @@ describe("Looping", function() {
       //  #
       // # #
     });
-    
+
     it("creates a grid with 2 columns and rows when input is 2", function(){
       expect(gridGenerator(2)).toEqual("# \n #\n")
     });
@@ -151,11 +151,11 @@ describe("looping over objects", function() {
       var object = {f: 6, e: 5, d: 4, c: 3, b: 2, a: 1 };
       expect(paramify(object)).toEqual("a=1&b=2&c=3&d=4&e=5&f=6");
     });
-  
-    // This one is also tricky, here we want you to only `paramify` the properties 
+
+    // This one is also tricky, here we want you to only `paramify` the properties
     // of the object and avoid any that are on the object's 'internal prototype' (.__proto__) property.
     it("skips properties of the object's prototype", function() {
-      
+
       // Alphabet is a constructor function that will use the `new` method of
       // object creation
       var Alphabet = function() {
@@ -166,9 +166,9 @@ describe("looping over objects", function() {
       Alphabet.prototype.c = 3
 
       var alphabet = new Alphabet();
-      
+
       // see how we're skipping `c` ?
-      expect(paramify(alphabet)).toEqual("a=1&b=2"); 
+      expect(paramify(alphabet)).toEqual("a=1&b=2");
     });
 
     it("calls Object.prototype.hasOwnProperty and does not use Object.keys", function() {
@@ -215,7 +215,7 @@ describe("looping over objects", function() {
       expect(paramifyObjectKeys(object)).toEqual("a=1&b=2&c=3&d=4&e=5&f=6");
     });
 
-    
+
     it("skips properties of the object's prototype", function() {
 
       var Alphabet = function() {
@@ -257,7 +257,7 @@ describe("looping over objects", function() {
     var newFileNames = renameFiles(files);
     console.log(newFilesNames);
     --> ['myFile', 'anotherFile', 'family-picture', 'myFile(1)', 'anotherFile(1)', 'myFile(2)']
-    
+
     */
 
 
@@ -272,14 +272,14 @@ describe("looping over objects", function() {
     it('renames files if there are duplicates by adding `(n)` to the end of the filename where `n` is the smallest positive integer that the obtained name did not use.', function(){
       expect(renameFiles(['hello', 'world', 'hello'])).toEqual(['hello', 'world', 'hello(1)']);
     });
-    
+
     it('does not rename files to names that are already taken', function() {
       expect(renameFiles(["a(1)","a(6)","a","a","a","a","a","a","a","a","a","a"])).toEqual(["a(1)","a(6)","a","a(2)","a(3)","a(4)","a(5)","a(7)","a(8)","a(9)","a(10)","a(11)"]);
       //This definitely increases the difficulty of the problem! If a file already exists, you can't use that name. For example, if file(3) already exists, you shouldn't name another file 'file(3)'.
     })
-    
 
-    //This is a tricky one! You will need to use all the tools at your disposal.  
+
+    //This is a tricky one! You will need to use all the tools at your disposal.
 
   });
 });
